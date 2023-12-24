@@ -1,0 +1,89 @@
+@import url(https://fonts.bunny.net/css?family=noto-sans:300,300i,400,400i,500,500i,600,600i,700,700i|noto-serif-display:300,300i,400,400i,500,500i,600,600i,700,700i,800,900);
+
+body {
+    font-size: clamp(1rem, 1vw, 1.125rem);
+}
+
+h1,
+.text-h1,
+h2,
+.text-h2,
+h3,
+.text-h3,
+h4,
+.text-h4,
+h5,
+.text-h5,
+h6,
+.text-h6 {
+    @apply leading-tight font-serif font-light tracking-tight lg:tracking-tighter;
+}
+
+h1,
+.text-h1 {
+    font-size: clamp(2.5rem, 5vw, 6rem);
+}
+
+h2,
+.text-h2 {
+    font-size: clamp(2.25rem, 3vw, 3.5rem);
+}
+
+h3,
+.text-h3 {
+    font-size: clamp(2rem, 3vw, 3rem);
+}
+
+h4,
+.text-h4 {
+    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+}
+
+h5,
+.text-h5 {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+h6,
+.text-h6 {
+    font-size: clamp(.875rem, 1.5vw, 1rem);
+}
+
+p {
+    @apply leading-relaxed;
+}
+
+
+.text-caption--sm {
+    font-size: clamp(.75rem, 1vw, .875rem);
+    @apply font-semibold leading-normal tracking-wider uppercase;
+}
+
+.text-caption--md {
+    font-size: clamp(.875rem, 1vw, 1rem);
+    @apply font-semibold leading-normal tracking-wider uppercase;
+}
+
+.button {
+    @apply flex items-center justify-center gap-2 px-5 py-4 text-base font-medium leading-none text-center transition-colors duration-200 ease-in-out lg:gap-3 lg:px-6 lg:py-4;
+}
+
+.button--primary {
+    @apply text-black bg-primary-300 hover:bg-primary-400;
+}
+
+.button--white {
+    @apply text-black bg-white button hover:bg-primary-500 hover:text-black;
+}
+
+.button-outlined {
+    @apply text-black border border-black button hover:bg-primary-500 hover:text-black;
+}
+
+.button-outlined--white {
+    @apply text-white border border-white button hover:bg-primary-500 hover:text-black hover:border-transparent;
+}
+
+::-webkit-datetime-edit-fields-wrapper {
+    @apply text-black/50 uppercase;
+}

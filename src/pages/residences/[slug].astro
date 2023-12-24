@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const { slug } = Astro.params;
+
+let res = await fetch(
+  `http://localhost:8000/wp-json/wp/v2/residences?slug=${slug}`
+);
+let [post] = await res.json();
+
+export async function getStaticPaths() {
+  let data = await fetch("http://localhost:8000/wp-json/wp/v2/residences");
+  let posts = await data.json();
+
+  return posts.map((post: { slug: any }) => ({
+    params: { slug: post.slug },
+    props: { post: post },
+  }));
+}
+
+const featuredMediaLink = post._links["wp:featuredmedia"][0].href;
+const mediaRes = await fetch(featuredMediaLink);
+const mediaData = await mediaRes.json();
+
+const updatedPost = {
+  ...post,
+  imageUrl: mediaData.source_url,
+};
+---
+
+<Layout pageTitle={post.title.rendered}>
+  <div class="container flex flex-col gap-6 py-6">
+    <div class="flex flex-col gap-3">
+      <h1 set:html={post.title.rendered} />
+      <div set:html={post.excerpt.rendered} />
+    </div>
+    <img src={updatedPost.imageUrl} alt={post.title.rendered} />
+  </div>
+</Layout>

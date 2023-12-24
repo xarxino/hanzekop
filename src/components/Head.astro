@@ -1,0 +1,15 @@
+---
+import "../global.css";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../lib/consts";
+
+const { pageTitle } = Astro.props;
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content={SITE_DESCRIPTION} />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/svg/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{SITE_TITLE} &mdash; {pageTitle}</title>
+</head>

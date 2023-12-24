@@ -1,0 +1,57 @@
+---
+import { SITE_DESCRIPTION } from "../lib/consts";
+---
+
+<header
+  class={`${
+    new URL(Astro.request.url).pathname === "/"
+      ? "absolute top-0 inset-x-0 z-0"
+      : ""
+  } container flex items-center justify-between pt-6 lg:pt-8 2xl:pt-10 xl:items-start`}
+>
+  <a href="/">
+    <img
+      src="/svg/logo.svg"
+      alt={SITE_DESCRIPTION}
+      class="w-16 lg:w-20 2xl:w-24"
+    />
+  </a>
+  <button class="relative z-10">
+    <span
+      class="md:hidden flex items-center justify-center border h-14 rounded-full w-14 border-primary-950"
+      >Menu</span
+    >
+    <img
+      src="/svg/menu-button.svg"
+      class="hidden md:block w-32 lg:w-40 xl:w-44 animate-spin-veryslow"
+    />
+  </button>
+  <nav class="hidden bg-white fixed left-0 top-0 h-full w-2/3">
+    <ul
+      class="container flex flex-col items-center text-left justify-center h-full w-full gap-6"
+    >
+      <li>
+        <a href="/" class="text-xl">Home</a>
+      </li>
+      <li>
+        <a href="/residences" class="text-xl">Residences</a>
+      </li>
+      <li>
+        <a href="/contact" class="text-xl">Contact</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const init = () => {
+    const button = document.querySelector("button") as HTMLButtonElement;
+    const nav = document.querySelector("nav") as HTMLElement;
+
+    button.addEventListener("click", () => {
+      nav.classList.toggle("hidden");
+    });
+  };
+
+  document.addEventListener("astro:load", init);
+</script>
