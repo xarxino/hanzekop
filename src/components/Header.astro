@@ -16,14 +16,14 @@ import { SITE_DESCRIPTION } from "../lib/consts";
       class="w-16 lg:w-20 2xl:w-24"
     />
   </a>
-  <button class="relative z-10">
+  <button class="relative z-10 select-none group">
     <span
       class="md:hidden flex items-center justify-center border h-14 rounded-full w-14 border-primary-950"
       >Menu</span
     >
     <img
       src="/svg/menu-button.svg"
-      class="hidden md:block w-32 lg:w-40 xl:w-44 animate-spin-veryslow"
+      class="hidden md:block w-32 lg:w-40 xl:w-44 animate-spin-veryslow group-hover:scale-110 transition-all"
     />
   </button>
   <nav class="hidden bg-white fixed left-0 top-0 h-full w-2/3">
